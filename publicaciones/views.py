@@ -2,18 +2,19 @@ from django.views.generic import TemplateView, ListView, DetailView
 from .models import Publicacion
 
 
-class inicioview(TemplateView):
+class InicioView(TemplateView):
     template_name = "publicaciones/inicio.html"
-   
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["titulo"] = Publicacion
-        context["mensaje"] = ""
+        context["titulo"] = "Portal de Publicaciones"
+        context["mensaje"] = "Bienvenido/a al sitio oficial de noticias y artículos."
         return context
-   
+
+
 class PublicacionListView(ListView):
     model = Publicacion
-    Context_object_name = "publicacion_list"
+    context_object_name = "publicacion_list"
 
 
 class PublicacionDetailView(DetailView):
